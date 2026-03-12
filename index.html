@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thow Deng Yuel • Futuristic Global Health</title>
+  <meta name="description" content="Human Nutrition & Global Health Professional – futuristic portfolio">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dark-theme">
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo"><i class="fas fa-atom fa-spin"></i></div>
+      <div class="loading-text">Thow Deng Yuel</div>
+      <div class="loading-subtext">Human Nutrition & Global Health</div>
+      <div class="loading-progress">
+        <div class="loading-bar" id="loadingBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon"><i class="fas fa-globe-africa"></i></span>
+        <span class="logo-text">TDY</span>
+      </a>
+      <div class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#profile" class="nav-link">Profile</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#competencies" class="nav-link">Competencies</a>
+        <a href="#global-impact" class="nav-link">Global Impact</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+        <div class="nav-toggle" id="navToggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge"><span>✦ FUTURE OF NUTRITION ✦</span></div>
+        <h1 class="hero-name">Thow Deng Yuel</h1>
+        <h2 class="hero-title">Human Nutrition & Global Health Professional</h2>
+        <p class="hero-mission">Pioneering data‑driven nutrition solutions in humanitarian settings with AI‑enhanced surveillance.</p>
+        <!-- Hero stats removed -->
+        <div class="hero-buttons">
+          <a href="https://drive.google.com/uc?export=download&id=1VAhdk7DPscXd11ZwlIcVkkR_dyyiVNpf" class="btn btn-primary" id="downloadCvBtn" download><i class="fas fa-download"></i> CV</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Connect</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="profile-container">
+          <div class="profile-ring"></div>
+          <img src="https://i.postimg.cc/Tw724Ht0/5874999714988625229-(1).jpg" alt="Thow Deng Yuel" class="profile-image" id="profileImage">
+          <!-- profile-badges removed -->
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Explore</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- Profile Section -->
+  <section id="profile" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">✦ PROFILE ✦</span>
+        <h2 class="section-title gradient-text">Professional Identity</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="profile-card glass">
+        <div class="profile-quote">
+          <i class="fas fa-quote-left"></i>
+          <p>Results-oriented Human Nutrition professional (CGPA: 3.61/4.00) with proven leadership in humanitarian nutrition programming, clinical case management, and public health data systems.</p>
+        </div>
+        <div class="profile-text">
+          <p>Demonstrated capacity to manage acute malnutrition interventions (SAM/MAM), coordinate multidisciplinary teams, and integrate WASH and community health strategies in refugee settings. Strong analytical and operational background with a commitment to improving health outcomes in fragile contexts.</p>
+          <p>Recognized for accountability, adaptability, and evidence-based decision-making. Experienced with international NGOs, UN agencies, and national health systems.</p>
+        </div>
+        <!-- profile-logos removed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Competencies -->
+  <section id="competencies" class="section alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">✦ EXPERTISE ✦</span>
+        <h2 class="section-title gradient-text">Core Competencies</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="competencies-grid">
+        <div class="competency-card glass">
+          <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+          <h3>Acute Malnutrition (CMAM)</h3>
+          <p>Expert in community‑based management protocols</p>
+        </div>
+        <div class="competency-card glass">
+          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Public Health Programming</h3>
+          <p>Design & implementation in emergencies</p>
+        </div>
+        <div class="competency-card glass">
+          <div class="card-icon"><i class="fas fa-clinic-medical"></i></div>
+          <h3>SAM/MAM Case Management</h3>
+          <p>Clinical supervision & therapeutic feeding</p>
+        </div>
+        <div class="competency-card glass">
+          <div class="card-icon"><i class="fas fa-database"></i></div>
+          <h3>Nutrition Surveillance</h3>
+          <p>Data collection, analysis & interpretation</p>
+        </div>
+        <div class="competency-card glass">
+          <div class="card-icon"><i class="fas fa-hand-holding-water"></i></div>
+          <h3>WASH Integration</h3>
+          <p>Coordinating cross‑sectoral interventions</p>
+        </div>
+        <div class="competency-card glass">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <h3>Team Supervision</h3>
+          <p>Leading multidisciplinary teams</p>
+        </div>
+        <div class="competency-card glass">
+          <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+          <h3>Monitoring & Reporting</h3>
+          <p>Quality assurance & donor reporting</p>
+        </div>
+        <div class="competency-card glass">
+          <div class="card-icon"><i class="fas fa-globe-africa"></i></div>
+          <h3>Cross‑Cultural Coordination</h3>
+          <p>Working with diverse communities</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">✦ CAREER ✦</span>
+        <h2 class="section-title gradient-text">Professional Journey</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content glass">
+            <div class="timeline-header"><h3>Nutrition Supervisor</h3><span class="timeline-date">2019–2021</span></div>
+            <div class="timeline-org"><i class="fas fa-building"></i> Action Against Hunger – Pugnido 2 Refugee Camp</div>
+            <ul class="timeline-list">
+              <li>Supervised frontline nutrition teams delivering SAM/MAM interventions</li>
+              <li>Ensured compliance with international protocols</li>
+              <li>Coordinated WASH‑integrated programming</li>
+              <li>Trained staff on anthropometric measurements</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content glass">
+            <div class="timeline-header"><h3>Nutrition Intern – Stabilization Center</h3><span class="timeline-date">Mar 2025</span></div>
+            <div class="timeline-org"><i class="fas fa-hospital"></i> Adare Hospital, Hawassa</div>
+            <ul class="timeline-list">
+              <li>Managed complicated SAM cases under supervision</li>
+              <li>Applied therapeutic feeding protocols</li>
+              <li>Participated in multidisciplinary assessments</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content glass">
+            <div class="timeline-header"><h3>Nutrition Data & Analysis Intern</h3><span class="timeline-date">Apr–May 2025</span></div>
+            <div class="timeline-org"><i class="fas fa-chart-bar"></i> Sidama Public Health Institute</div>
+            <ul class="timeline-list">
+              <li>Conducted nutrition data collection & analysis</li>
+              <li>Supported evidence‑based planning</li>
+              <li>Strengthened institutional reporting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Impact with Interactive 3D Globe -->
+  <section id="global-impact" class="section alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">✦ REACH ✦</span>
+        <h2 class="section-title gradient-text">Global Impact</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="globe-container glass">
+        <canvas id="globeCanvas"></canvas>
+        <div class="globe-overlay"></div>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card glass"><span class="impact-number">50,000+</span><span class="impact-label">Beneficiaries</span></div>
+        <div class="impact-card glass"><span class="impact-number">3</span><span class="impact-label">Countries</span></div>
+        <div class="impact-card glass"><span class="impact-number">12+</span><span class="impact-label">Programs</span></div>
+        <div class="impact-card glass"><span class="impact-number">100+</span><span class="impact-label">Workers Trained</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">✦ ACADEMIC ✦</span>
+        <h2 class="section-title gradient-text">Education</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="education-grid">
+        <div class="education-card glass">
+          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>B.Sc. Human Nutrition</h3>
+          <p class="edu-institution">Hawassa University, Ethiopia</p>
+          <p class="edu-date">2022–2025 | CGPA 3.61/4.00</p>
+          <div class="edu-focus">
+            <span class="focus-tag">Public Health</span>
+            <span class="focus-tag">Clinical Nutrition</span>
+            <span class="focus-tag">CMAM</span>
+            <span class="focus-tag">Epidemiology</span>
+          </div>
+        </div>
+        <div class="education-card glass">
+          <div class="edu-icon"><i class="fas fa-school"></i></div>
+          <h3>Secondary Education</h3>
+          <p class="edu-institution">DICAC-RADD High School</p>
+          <p class="edu-date">Pugnido Refugee Camp | 2018–2022</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section (Phone & Email only) -->
+  <section id="contact" class="section alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">✦ CONNECT ✦</span>
+        <h2 class="section-title gradient-text">Contact</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <div class="contact-card glass">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <h4>Phone</h4>
+              <p>+251 977 427 821<br>+251 991 768 409</p>
+            </div>
+          </div>
+          <div class="contact-card glass">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:thowjdeng@gmail.com">thowjdeng@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Form with EmailJS -->
+        <form class="contact-form glass" id="contactForm">
+          <div class="form-group">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <div class="form-group" id="formStatus" style="display: none;"></div>
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (clean, no social icons) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-atom fa-spin"></i>
+          <span>Thow Deng Yuel</span>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#profile">Profile</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <!-- footer-social removed -->
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Thow Deng Yuel – Human Nutrition & Global Health</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
