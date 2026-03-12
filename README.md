@@ -1,160 +1,272 @@
-## 📄 **README.md**
-
-```markdown
-# 🌍 Thow Deng Yuel – Global Health Research Portfolio
-
-[![GitHub license](https://img.shields.io/github/license/yourusername/thow-deng-yuel-portfolio)](LICENSE)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat&logo=three.js&logoColor=white)](https://threejs.org/)
-[![EmailJS](https://img.shields.io/badge/EmailJS-FF6F61?style=flat&logo=mail.ru&logoColor=white)](https://www.emailjs.com/)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://thowdeng.netlify.app)
-
-> A world‑class, research‑grade portfolio website for **Thow Deng Yuel**, a Human Nutrition & Global Health professional. Designed to reflect the credibility and authority of top global health organizations such as WHO, UNICEF, and Action Against Hunger.
+Below is a **refined and fully professional version** of your README. It keeps the same structure but improves **tone, clarity, credibility, and formatting** so it looks like a **serious professional project on GitHub** rather than a casual template.
 
 ---
 
-## ✨ **Live Demo**
+# 🌍 Thow Deng Yuel — Global Health Research Portfolio
 
-🔗 **[thowdeng.netlify.app](https://thowdeng.netlify.app)**  
-*(Replace with actual URL)*
+[![License](https://img.shields.io/github/license/yourusername/thow-deng-yuel-portfolio)](LICENSE)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat\&logo=html5\&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat\&logo=css3\&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat\&logo=javascript\&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat\&logo=three.js\&logoColor=white)](https://threejs.org/)
+[![EmailJS](https://img.shields.io/badge/EmailJS-FF6F61?style=flat)](https://www.emailjs.com/)
 
----
+A modern, research-grade portfolio website showcasing the professional work and experience of **Thow Deng Yuel**, a specialist in **Human Nutrition and Global Health**.
 
-## 📸 **Preview**
-
-![Hero Section](https://via.placeholder.com/1200x600?text=Thow+Deng+Yuel+Portfolio+Preview)  
-*(Add a real screenshot later)*
-
----
-
-## 🧬 **Features**
-
-- 🌌 **Full‑screen particle background** – Custom canvas animation that adapts to theme.
-- 🎨 **Global health color palette** – Deep emerald, teal, and mint green.
-- ☀️ **Light / Dark mode** – Toggle with smooth transitions, saved in `localStorage`.
-- 📱 **3‑dot mobile navigation** – Elegant dropdown for small screens.
-- 💎 **Glassmorphism UI** – Cards with blur and subtle shadows.
-- 🌐 **Interactive 3D globe** – Built with Three.js, showing humanitarian hotspots.
-- 📊 **Animated impact counters** – Numbers that count up when scrolled into view.
-- 🧭 **Vertical experience timeline** – Research‑style mission cards.
-- 🧪 **Core expertise grid** – Icons and hover effects.
-- 📬 **Contact form with EmailJS** – Fully functional, with validation and success feedback.
-- ⚡ **Optimized performance** – Lazy loading, efficient animations, vanilla JS.
+The portfolio is designed to reflect the professionalism and credibility expected in international humanitarian and public health environments, similar to the digital profiles used by organizations such as the World Health Organization, UNICEF, and Action Against Hunger.
 
 ---
 
-## 🛠️ **Technologies Used**
+# 🌐 Live Website
 
-| Logo | Technology | Purpose |
-|------|------------|---------|
-| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" width="20"> | HTML5 | Structure |
-| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" width="20"> | CSS3 | Styling |
-| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="20"> | JavaScript | Interactivity |
-| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg" width="20"> | Three.js | 3D globe |
-| <img src="https://www.emailjs.com/favicon.ico" width="20"> | EmailJS | Contact form |
-| <img src="https://fonts.gstatic.com/s/i/googlematerialicons/email/v15/white-24dp/1x/gmail_white_24dp.png" width="20"> | Google Fonts | Inter, Source Sans Pro |
-| <img src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/logo.svg" width="20"> | Font Awesome | Icons |
+**Portfolio:**
+[https://thowdeng.netlify.app](https://thowdeng.netlify.app)
 
 ---
 
-## 📁 **Project Structure**
+# 📸 Portfolio Preview
+
+*(Add a screenshot of the homepage here once the design is finalized.)*
+
+Example:
 
 ```
-thow-deng-yuel-portfolio/
+/assets/images/portfolio-preview.png
+```
+
+---
+
+# ✨ Key Features
+
+### 🌌 Full-Screen Particle Background
+
+A dynamic particle animation system built with canvas that provides a modern scientific aesthetic across the entire website.
+
+### 🎨 Global Health Color System
+
+A professional palette inspired by international health organizations:
+
+* Deep emerald green
+* Teal research tones
+* Soft mint accents
+* Clean white research interface
+
+### ☀️ Light & Dark Mode
+
+Users can switch between light and dark themes.
+
+Features include:
+
+* Smooth transitions
+* Theme preference saved in `localStorage`
+* Optimized colors for readability
+
+### 📱 Mobile-First Navigation
+
+A modern **three-dot mobile menu** provides a clean and intuitive navigation experience on small screens.
+
+### 💎 Glassmorphism Interface
+
+Cards and sections use subtle blur effects and transparency to create a contemporary and elegant layout.
+
+### 🌍 Interactive Global Visualization
+
+A rotating **3D globe built with Three.js** illustrates global health impact and humanitarian program locations.
+
+### 📊 Impact Metrics Dashboard
+
+Animated counters highlight key achievements such as:
+
+* Beneficiaries served
+* Health programs implemented
+* Health workers trained
+* Countries impacted
+
+### 🧭 Professional Experience Timeline
+
+A vertical research-style timeline presenting professional experience with structured mission summaries.
+
+### 🧪 Core Expertise Grid
+
+Interactive cards showcase key competencies in:
+
+* Acute Malnutrition Management
+* Public Health Nutrition
+* Nutrition Surveillance
+* WASH Integration
+* Monitoring and Evaluation
+* Cross-Cultural Coordination
+
+### 📬 Integrated Contact System
+
+A functional contact form powered by **EmailJS** allows visitors to send messages directly through the website.
+
+---
+
+# 🛠 Technologies Used
+
+| Technology   | Purpose                     |
+| ------------ | --------------------------- |
+| HTML5        | Semantic page structure     |
+| CSS3         | Styling, layout, animations |
+| JavaScript   | Interactive functionality   |
+| Three.js     | 3D globe visualization      |
+| EmailJS      | Contact form integration    |
+| Google Fonts | Professional typography     |
+| Font Awesome | Icon system                 |
+
+---
+
+# 📁 Project Structure
+
+```
+thow-deng-yuel-portfolio
 │
-├── index.html          # Main HTML file
-├── css/
-│   └── styles.css      # All styles (CSS variables, glassmorphism, animations)
-├── js/
-│   └── main.js         # JavaScript (particles, theme, counters, EmailJS)
-├── assets/
-│   └── images/         # (optional) profile image, logos
-└── README.md           # You are here
+├── index.html
+│
+├── css
+│   └── styles.css
+│
+├── js
+│   └── main.js
+│
+├── assets
+│   └── images
+│
+└── README.md
 ```
 
 ---
 
-## 🚀 **Getting Started**
+# 🚀 Getting Started
 
-### Prerequisites
-- A modern web browser (Chrome, Firefox, Edge, Safari)
-- (Optional) A local server like [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for development
+## Prerequisites
 
-### Installation
+To run this project you only need:
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/thow-deng-yuel-portfolio.git
-   cd thow-deng-yuel-portfolio
-   ```
-
-2. **Open the project**
-   - Simply open `index.html` in your browser, or
-   - Use Live Server (VS Code extension) for auto‑refresh
-
-3. **Customize**
-   - Replace `profile.jpg` with your own image in the `assets/images/` folder.
-   - Update contact details and CV link in `index.html`.
-   - (Optional) Change EmailJS credentials in `main.js` to your own.
+* A modern web browser
+* (Optional) a local development server such as **Live Server for Visual Studio Code**
 
 ---
 
-## ⚙️ **Configuration**
+## Installation
 
-### EmailJS
-The contact form uses EmailJS. To use your own account:
-1. Sign up at [emailjs.com](https://www.emailjs.com/)
-2. Create an email service and template.
-3. Replace the `publicKey`, `serviceId`, and `templateId` in `js/main.js` with your own.
+Clone the repository:
 
-### Particle Colors
-Particle colors adapt to the current theme. You can modify the RGBA values in the `initParticles()` function inside `main.js`.
+```bash
+git clone https://github.com/yourusername/thow-deng-yuel-portfolio.git
+```
 
----
+Navigate to the project folder:
 
-## 📱 **Responsive Design**
+```bash
+cd thow-deng-yuel-portfolio
+```
 
-The portfolio is fully responsive and tested on:
-- Desktop (1440px and above)
-- Laptop (1024px)
-- Tablet (768px)
-- Mobile (480px and below)
+Open the project by launching:
 
-The mobile navigation uses a clean 3‑dot menu with smooth dropdown.
+```
+index.html
+```
 
----
-
-## 🤝 **Contributing**
-
-Contributions, issues, and feature requests are welcome!  
-Feel free to check the [issues page](https://github.com/yourusername/thow-deng-yuel-portfolio/issues).
+Alternatively, run it with **Live Server** in Visual Studio Code for automatic page refresh during development.
 
 ---
 
-## 📄 **License**
+# ⚙ Configuration
 
-This project is [MIT](LICENSE) licensed. Feel free to use it as a template for your own professional portfolio.
+## EmailJS Setup
+
+To enable the contact form:
+
+1. Create an account at
+   [https://www.emailjs.com](https://www.emailjs.com)
+
+2. Create:
+
+* Email service
+* Email template
+
+3. Update the following values inside:
+
+```
+js/main.js
+```
+
+Replace:
+
+```
+publicKey
+serviceId
+templateId
+```
+
+with your own credentials.
 
 ---
 
-## 🙌 **Acknowledgements**
+# 📱 Responsive Design
 
-- Fonts by [Google Fonts](https://fonts.google.com/)
-- Icons by [Font Awesome](https://fontawesome.com/)
-- 3D globe powered by [Three.js](https://threejs.org/)
-- Email service by [EmailJS](https://www.emailjs.com/)
-- Particle inspiration from countless creative coders
+The portfolio is optimized for all screen sizes:
 
----
+| Device  | Width   |
+| ------- | ------- |
+| Mobile  | 480px   |
+| Tablet  | 768px   |
+| Laptop  | 1024px  |
+| Desktop | 1440px+ |
 
-## 👨‍⚕️ **Author**
-
-**Thow Deng Yuel**  
-Human Nutrition & Global Health Professional  
-[Email](mailto:thowjdeng@gmail.com) · [LinkedIn](https://linkedin.com/in/thowden · [Website](https://thowdeng.netlify.app)
+The mobile interface includes a **three-dot dropdown navigation menu** with smooth animations.
 
 ---
 
-⭐️ *If you find this portfolio useful, please consider giving it a star on GitHub!*
+# 🤝 Contributing
+
+Contributions and suggestions are welcome.
+
+You may:
+
+* open an issue
+* submit improvements
+* suggest design enhancements
+
+via the project repository.
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+You are free to use this project as a template for your own professional portfolio.
+
+---
+
+# 🙏 Acknowledgements
+
+* Fonts provided by Google Fonts
+* Icons provided by Font Awesome
+* 3D graphics powered by Three.js
+* Contact service powered by EmailJS
+
+---
+
+# 👤 Author
+
+**Thow Deng Yuel**
+
+Human Nutrition & Global Health Professional
+
+Email:
+[thowjohndengyuel@gmail.com](mailto:thowjohndengyuel@gmail.com)
+
+Website:
+[https://thowdeng.netlify.app](https://thowdeng.netlify.app)
+
+---
+
+⭐ If you find this project helpful, consider giving it a star on GitHub.
+
+---
+
+If you'd like, I can also show you **3 GitHub tricks used by senior engineers** to make this README look **even more elite** (with animated banners, visitor counters, and GitHub stats).
