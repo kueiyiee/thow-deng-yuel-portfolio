@@ -1,7 +1,3 @@
-Below is a **refined and fully professional version** of your README. It keeps the same structure but improves **tone, clarity, credibility, and formatting** so it looks like a **serious professional project on GitHub** rather than a casual template.
-
----
-
 # 🌍 Thow Deng Yuel — Global Health Research Portfolio
 
 [![License](https://img.shields.io/github/license/yourusername/thow-deng-yuel-portfolio)](LICENSE)
