@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import * as THREE from "three";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 import {
   FiArrowDown,
   FiBarChart2,
@@ -172,12 +174,60 @@ function App() {
   const [formStatus, setFormStatus] = useState({ type: "", text: "" });
   const [sending, setSending] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const particleRef = useRef(null);
+  const [particlesReady, setParticlesReady] = useState(false);
   const globeRef = useRef(null);
   const glowRef = useRef(null);
   const profileRef = useRef(null);
 
-  const particleColor = lightMode ? 0x60a5fa : 0x38bdf8;
+  const particlesOptions = useMemo(
+    () => ({
+      fpsLimit: 60,
+      background: { color: { value: "transparent" } },
+      particles: {
+        number: { value: 80, density: { enable: true, area: 800 } },
+        color: {
+          value: lightMode
+            ? ["#1f2937", "#316ed6", "#22d3ee"]
+            : ["#ffffff", "#a0c4ff", "#d0f4f7"],
+        },
+        shape: { type: "circle" },
+        opacity: { value: { min: 0.3, max: 0.65 } },
+        size: { value: { min: 1.2, max: 3.6 } },
+        links: {
+          enable: true,
+          distance: 120,
+          color: lightMode ? "#1f2937" : "#ffffff",
+          opacity: lightMode ? 0.18 : 0.3,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 0.65,
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: { default: "out" },
+          attract: {
+            enable: true,
+            rotateX: 600,
+            rotateY: 1200,
+          },
+        },
+      },
+      interactivity: {
+        detectsOn: "window",
+        events: {
+          onHover: { enable: true, mode: "attract" },
+          onClick: { enable: false },
+        },
+        modes: {
+          attract: { distance: 200, duration: 0.3, factor: 1 },
+        },
+      },
+      detectRetina: true,
+    }),
+    [lightMode]
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 900);
@@ -228,138 +278,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const canvas = particleRef.current;
-    if (!canvas) return;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 5;
-
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-    const geometry = new THREE.BufferGeometry();
-    const particleCount = 300;
-    const positions = new Float32Array(particleCount * 3);
-    const velocities = new Float32Array(particleCount * 2);
-
-    for (let index = 0; index < particleCount; index += 1) {
-      const i3 = index * 3;
-      const i2 = index * 2;
-
-      positions[i3] = (Math.random() - 0.5) * 12;
-      positions[i3 + 1] = (Math.random() - 0.5) * 8;
-      positions[i3 + 2] = (Math.random() - 0.5) * 4;
-
-      velocities[i2] = (Math.random() - 0.5) * 0.0038;
-      velocities[i2 + 1] = (Math.random() - 0.5) * 0.0038;
-    }
-
-    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    const material = new THREE.PointsMaterial({
-      color: particleColor,
-      size: 0.015,
-      transparent: true,
-      opacity: 0.6,
-      depthWrite: false,
-    });
-    const particles = new THREE.Points(geometry, material);
-    scene.add(particles);
-    const clock = new THREE.Clock();
-
-    const mouse = { x: 1000, y: 1000, active: false };
-    let worldWidth = 12;
-    let worldHeight = 8;
-
-    const updateWorldSize = () => {
-      const vFov = THREE.MathUtils.degToRad(camera.fov);
-      worldHeight = 2 * Math.tan(vFov / 2) * camera.position.z;
-      worldWidth = worldHeight * camera.aspect;
-    };
-
-    const onPointerMove = (event) => {
-      const nx = (event.clientX / window.innerWidth) * 2 - 1;
-      const ny = -((event.clientY / window.innerHeight) * 2 - 1);
-      mouse.x = nx * (worldWidth / 2);
-      mouse.y = ny * (worldHeight / 2);
-      mouse.active = true;
-    };
-
-    const onPointerLeave = () => {
-      mouse.active = false;
-    };
-
-    let animationId;
-    const animate = () => {
-      const delta = clock.getDelta();
-      const step = delta * 60;
-      const repelRadius = 0.72;
-      const repelRadiusSq = repelRadius * repelRadius;
-      const edgeX = worldWidth / 2 + 0.5;
-      const edgeY = worldHeight / 2 + 0.5;
-
-      for (let index = 0; index < particleCount; index += 1) {
-        const i3 = index * 3;
-        const i2 = index * 2;
-
-        let x = positions[i3] + velocities[i2] * step;
-        let y = positions[i3 + 1] + velocities[i2 + 1] * step;
-
-        if (mouse.active) {
-          const dx = x - mouse.x;
-          const dy = y - mouse.y;
-          const distSq = dx * dx + dy * dy;
-
-          if (distSq < repelRadiusSq) {
-            const dist = Math.sqrt(distSq) || 0.001;
-            const force = (1 - dist / repelRadius) * 0.035 * step;
-            x += (dx / dist) * force;
-            y += (dy / dist) * force;
-          }
-        }
-
-        if (x > edgeX) x = -edgeX;
-        if (x < -edgeX) x = edgeX;
-        if (y > edgeY) y = -edgeY;
-        if (y < -edgeY) y = edgeY;
-
-        positions[i3] = x;
-        positions[i3 + 1] = y;
-      }
-
-      geometry.attributes.position.needsUpdate = true;
-      particles.rotation.y += delta * 0.00055;
-      particles.rotation.x += delta * 0.00028;
-      renderer.render(scene, camera);
-      animationId = requestAnimationFrame(animate);
-    };
-
-    updateWorldSize();
-    animate();
-
-    const resize = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      updateWorldSize();
-    };
-
-    window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerleave", onPointerLeave);
-    window.addEventListener("resize", resize);
-
-    return () => {
-      window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("pointerleave", onPointerLeave);
-      window.removeEventListener("resize", resize);
-      cancelAnimationFrame(animationId);
-      geometry.dispose();
-      material.dispose();
-      renderer.dispose();
-    };
-  }, [particleColor]);
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => setParticlesReady(true));
+  }, []);
 
   useEffect(() => {
     const glow = glowRef.current;
@@ -706,7 +628,9 @@ function App() {
 
   return (
     <>
-      <canvas className="particle-layer" ref={particleRef} aria-hidden="true" />
+      {particlesReady ? (
+        <Particles id="tsparticles" className="particle-layer" options={particlesOptions} />
+      ) : null}
       <div className="cursor-glow" ref={glowRef} aria-hidden="true" />
       <div className="collab-badge glass" role="status" aria-live="polite">
         Portfolio currently open for collaboration, internships, and career opportunities in Human
