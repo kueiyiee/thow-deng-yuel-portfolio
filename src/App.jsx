@@ -666,9 +666,41 @@ function App() {
 
   const smoothJump = (id) => {
     const target = document.getElementById(id);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!target) {
+      setMenuOpen(false);
+      return;
     }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      target.scrollIntoView({ behavior: "auto", block: "start" });
+      setMenuOpen(false);
+      return;
+    }
+
+    const headerOffset = 110;
+    const startY = window.scrollY;
+    const targetY = target.getBoundingClientRect().top + startY - headerOffset;
+    const distance = targetY - startY;
+    const duration = 760;
+    let startTime = null;
+
+    const easeInOutCubic = (t) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeInOutCubic(progress);
+      window.scrollTo({ top: startY + distance * eased });
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
     setMenuOpen(false);
   };
 
@@ -738,6 +770,23 @@ function App() {
         <section id="home" className="hero section">
           <div className="hero-glow" />
           <div className="container hero-wrap">
+            <aside className="portrait reveal portrait-hero">
+              <div className="portrait-image glass">
+                <img
+                  src="https://i.postimg.cc/Tw724Ht0/5874999714988625229-(1).jpg"
+                  alt="Thow Deng Yuel"
+                />
+              </div>
+              <div className="portrait-card glass">
+                <p className="portrait-card__eyebrow">Profile Snapshot</p>
+                <h3>Nutrition supervisor and field coordinator</h3>
+                <p>
+                  Experienced in CMAM delivery, program reporting, and collaboration with
+                  multidisciplinary teams.
+                </p>
+              </div>
+            </aside>
+
             <article className="hero-content reveal">
               <p className="eyebrow">HUMAN NUTRITION AND GLOBAL HEALTH</p>
               <h1>Thow Deng Yuel</h1>
@@ -760,23 +809,6 @@ function App() {
                 </button>
               </div>
             </article>
-
-            <aside className="portrait reveal">
-              <div className="portrait-image glass">
-                <img
-                  src="https://i.postimg.cc/Tw724Ht0/5874999714988625229-(1).jpg"
-                  alt="Thow Deng Yuel"
-                />
-              </div>
-              <div className="portrait-card glass">
-                <p className="portrait-card__eyebrow">Profile Snapshot</p>
-                <h3>Nutrition supervisor and field coordinator</h3>
-                <p>
-                  Experienced in CMAM delivery, program reporting, and collaboration with
-                  multidisciplinary teams.
-                </p>
-              </div>
-            </aside>
           </div>
           <button className="scroll-hint" type="button" onClick={() => smoothJump("profile")}>
             Explore <FiArrowDown />

@@ -41,6 +41,7 @@ body,
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
 }
 
 body {
@@ -49,6 +50,7 @@ body {
   color: var(--text);
   transition: background 0.35s ease, color 0.25s ease;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 body.light {
@@ -176,19 +178,45 @@ body.light {
   height: 3rem;
   border-radius: 50%;
   border: 1px solid var(--stroke);
-  background: rgba(15, 24, 54, 0.8);
+  background: rgba(9, 17, 38, 0.84);
   display: none;
   z-index: 45;
   cursor: pointer;
+}
+
+body.light .mobile-dot-menu {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(17, 32, 65, 0.22);
 }
 
 .mobile-dot-menu span {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--teal);
+  background: #ffffff;
   display: block;
   margin: 2px auto;
+  transition: transform 0.22s ease;
+  animation: menuDotPulse 2.4s ease-in-out infinite;
+}
+
+body.light .mobile-dot-menu span {
+  background: #111827;
+}
+
+.mobile-dot-menu:hover span {
+  transform: scale(1.08);
+}
+
+@keyframes menuDotPulse {
+  0%,
+  100% {
+    opacity: 0.88;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 .mobile-panel {
@@ -679,12 +707,15 @@ body::before {
 }
 
 .hero-wrap {
-  grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
-  gap: 2.2rem;
+  grid-template-columns: 1fr;
+  gap: 1.35rem;
+  justify-items: center;
 }
 
 .hero-content {
-  max-width: 43rem;
+  max-width: 46rem;
+  text-align: center;
+  animation: heroTextIn 0.65s ease both;
 }
 
 .hero-content .eyebrow {
@@ -706,6 +737,19 @@ body::before {
 .hero p {
   font-size: 1.03rem;
   line-height: 1.75;
+  margin-inline: auto;
+}
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-stats {
@@ -738,6 +782,10 @@ body::before {
   align-content: start;
 }
 
+.portrait-hero {
+  width: min(420px, 100%);
+}
+
 .portrait-image {
   min-height: 440px;
   border-radius: 30px;
@@ -757,6 +805,7 @@ body::before {
   border-radius: 22px;
   display: grid;
   gap: 0.45rem;
+  text-align: left;
 }
 
 .portrait-card__eyebrow {
@@ -1404,6 +1453,10 @@ body::before {
     grid-template-columns: 1fr;
   }
 
+  .hero-content {
+    max-width: 100%;
+  }
+
   .competency-grid,
   .cards4,
   .impact-grid {
@@ -1454,6 +1507,10 @@ body::before {
   .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .portrait-hero {
+    width: 100%;
   }
 
   .line-head {
