@@ -34,6 +34,30 @@ npm run build
 npm run preview
 ```
 
+## Deploy (Vercel / Netlify)
+
+This project is deployment-ready for both Vercel and Netlify.
+
+- Vercel config: `vercel.json`
+- Netlify config: `netlify.toml`
+
+### Vercel
+
+1. Import the repository in Vercel.
+2. Framework preset: `Vite`.
+3. Build command: `npm run build`.
+4. Output directory: `dist`.
+5. Add environment variables (see below), then deploy.
+
+### Netlify
+
+1. Import the repository in Netlify.
+2. Build command: `npm run build`.
+3. Publish directory: `dist`.
+4. Add environment variables (see below), then deploy.
+
+The included redirect rule supports SPA refreshes and deep links.
+
 ## Project Structure
 
 ```text
@@ -50,11 +74,25 @@ npm run preview
 
 ## Contact Form Setup (EmailJS)
 
-The contact form uses EmailJS service and template IDs. For production hardening:
+The contact form uses EmailJS service and template IDs.
 
-- move EmailJS keys into `.env` variables
-- read them through `import.meta.env`
+Set these environment variables in Vercel/Netlify project settings:
+
+- `VITE_EMAILJS_PUBLIC_KEY`
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+
+For production hardening:
+
 - allow your deployed domain in EmailJS dashboard settings
+
+Optional local `.env` example:
+
+```bash
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+```
 
 ## License
 

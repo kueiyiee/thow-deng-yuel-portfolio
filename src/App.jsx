@@ -161,9 +161,9 @@ const IMPACT = [
   ["100+", "Workers Trained"],
 ];
 
-const EMAILJS_PUBLIC_KEY = "rr76iLUBpXiBeYrGh";
-const EMAILJS_SERVICE_ID = "service_2xhgsri";
-const EMAILJS_TEMPLATE_ID = "template_xf55sff";
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "rr76iLUBpXiBeYrGh";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_2xhgsri";
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_xf55sff";
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
@@ -596,7 +596,9 @@ function App() {
   }, [lightMode]);
 
   useEffect(() => {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    if (EMAILJS_PUBLIC_KEY) {
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    }
   }, []);
 
   const onSubmit = async (event) => {
@@ -621,6 +623,14 @@ function App() {
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email);
     if (!isValidEmail) {
       setFormStatus({ type: "error", text: "Please enter a valid email address." });
+      return;
+    }
+
+    if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
+      setFormStatus({
+        type: "error",
+        text: "Message service is not configured. Please set EmailJS environment variables.",
+      });
       return;
     }
 
